@@ -1,0 +1,15 @@
+from django.shortcuts import render
+import picamera
+from django.http import HttpResponse
+
+camera = picamera.PiCamera()
+
+def index(request):
+	return HttpResponse("hello derp!")
+
+"""
+def datafeed(request):
+	return HttpResponse(camera.start_preview())
+"""
+
+# Create your views here.
