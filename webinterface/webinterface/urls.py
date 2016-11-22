@@ -20,6 +20,6 @@ from django.contrib import admin
 
 urlpatterns = [
 	url(r'^$', include('datafeed.urls')),
-	#	url(r'^datafeed/', include('datafeed.urls')),
+	url(r'^datafeed/', include('datafeed.urls')),
 	url(r'^admin/', admin.site.urls),
 ]
