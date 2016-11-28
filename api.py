@@ -56,7 +56,12 @@ def movezero():
 	"""
 	conn.goto(1, 512, speed=0, degrees=False)
 	conn.goto(2, 512, speed=0, degrees=False)	
-
+	conn.goto(1, 520, speed=0, degrees=False)
+	conn.goto(1, 510, speed=0, degrees=False)
+	conn.goto(2, 520, speed=0, degrees=False)
+	conn.goto(2, 510, speed=0, degrees=False)
+	conn.goto(1, 512, speed=0, degrees=False)
+	conn.goto(2, 512, speed=0, degrees=False)	
 
 def setup():
 	pass
@@ -88,7 +93,7 @@ DATAFEED
 MAINLOOP
 """
 
-
+movezero()
 
 ########################################################################################################
 ##########		code graveyard, for remaindered and old code that is still nonetheless instructive #####

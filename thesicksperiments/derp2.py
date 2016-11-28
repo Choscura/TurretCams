@@ -30,7 +30,7 @@ def degrees_to_dxl_angle(angle_degrees):
 
 def main(*args):
 	# Connect to the serial port
-	serial_connection = Connection(port="/dev/ttyACM0", baudrate=1000000, timeout=0.1, waiting_time=0.02)
+	serial_connection = Connection(port="/dev/ttyACM0", baudrate=100000, timeout=0.1, waiting_time=0.02)
 
 	print("scanning")
 	# Ping the dynamixel unit(s)
@@ -38,7 +38,7 @@ def main(*args):
 
 	print("Scanned")
 	for dynamixel_id in ids_available:
-
+		print("there's something here")
 		counter =0
 		
 

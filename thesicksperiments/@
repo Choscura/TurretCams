@@ -31,8 +31,8 @@ def curses():
 			elif char == curses.KEY_UP:
 				print("Fuck!")
 				#posy = posy + 1
-				Connection.goto(Connection, dynamixel_id=1, position=512, speed=512, degrees=False)
-				Connection.goto(Connection, dynamixel_id=2, position=700, speed=512, degrees=False)
+				Connection.goto(1, position=512, speed=512, degrees=False)
+				Connection.goto(2, position=700, speed=512, degrees=False)
 			elif char == curses.KEY_DOWN:
 				Connection.goto(1, position=512, speed=512, degrees=False)
 				Connection.goto(2, position=512, speed=512, degrees=False)
