@@ -14,7 +14,9 @@ for dynamixel_id in ids_available:
 	
 print("control tabling")
 serial_connection.pretty_print_control_table(dynamixel_id)
-print("serial connection tried to print control table, nothing happened")
+
+
+#print("serial connection tried to print control table, nothing happened")
 
 # Close the serial connection
 serial_connection.close()
