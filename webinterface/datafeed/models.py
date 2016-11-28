@@ -1,19 +1,38 @@
 from __future__ import unicode_literals
 
+#pyax12 imports for motor control
+from pyax12.connection import Connection
 
+#Django native/default imports
 from django.db import models
+
+#Django admin imports
+from django.contrib import admin
+
+
+#Serializer and API imports
 from pygments.lexers import get_all_lexers
 from pygments.styles import get_all_styles
 
 class ax12a(models.Model):
 	pass
 
+
+
+"""
+Connection class: the connection handles the actual controls of, input to, and output from the motors
+"""
 class connection(models.Model):
-	def open(self, port, baudrate, timeout, waiting_time):
-		pass
-	
+
+	def open(self, _port, _baudrate, _timeout, _waiting_time):
+		"""
+		a connection opener for letting the web app actually open a connection to the motors connected to the server
+		"""
+		self.serialconnection = Connection(port = _port, baudrate=_baudrate, timeout = _timeout, waiting_time = _waiting_time)
+		
+		
 	def close(self):
-		pass	
+		self.serialconnection.close()
 
 	def dump_control_table(self, dynamixel_id):
 		pass
@@ -80,7 +99,7 @@ class connection(models.Model):
 
 	def get_present_temperature(self, dynamixel_id):
 		pass
-
+	
 	def get_present_voltage(self, dynamixel_id):
 		pass
 
@@ -101,17 +120,48 @@ class connection(models.Model):
 
 	def	goto(self, dynamixel_id, position, speed, degree_boolean):
 		pass
+	
+	has_angle_limit_alarm_led= models.BooleanField(Field.default=False)
 
-	bool has_angle_limit_alarm_led(self, dynamixel_id):
-		pass
+	has_angle_limit_alarm_shutdown = models.BooleanField(Field.default=False)
+	
+	has_checksum_alarm_shutdown = models.BooleanField(Field.default=False)
 
-	bool has_angle_limit_alarm_shutdown(Self, dynamixel_id):	
-		pass
+	has_input_voltage_alarm_led = models.BooleanField(Field.default=False)
+
+	has_input_voltage_alarm_shutdown = models.BooleanField(Field.default=False)
+
+	has_instruction_alarm_led = models.BooleanField(Field.default=False)
+
+	has_instruction_alarm_shutdown = models.BooleanField(Field.default=False)
+
+	has_overheating_alarm_led = models.BooleanField(Field.default=False)
+
+	has_overheating_alarm_shutdown = models.BooleanField(Field.default=False)
+
+	has_overload_alarm_led= models.BooleanField(Field.default=False)
+
+	has_overload_alarm_shutdown = models.BooleanField(Field.default=False)
+
+	has_range_alarm_led = models.BooleanField(Field.default=False)
+
+	has_range_alarm_shutdown = models.BooleanField(Field.default=False)
+
+	has_registred_instruction = models.BooleanField(Field.default=False)
+
+	is_led_enabled = models.BooleanField(Field.default=False)
+
+	is_locked = models.BooleanField(Field.default=False)
+
+	is_moving = models.BooleanField(Field.default=False)
+
+	is_torque_enabled = models.BooleanField(Field.default=False)
 
 	
 
 class packet(models.Model):
-	pass
+	checksum = models.BinaryField(Field.Default=False)
+	
 
 class instruction_packet(models.Model):
 	pass
