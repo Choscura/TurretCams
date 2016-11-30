@@ -49,6 +49,8 @@ for ids in ids_available:
 	print("there should be a motor ID here")
 	print(ids)
 
+def movemotor(motor, point):
+	conn.goto(motor, point, speed=0, degrees=False)
 
 def movezero():
 	"""
@@ -92,7 +94,8 @@ DATAFEED
 """
 MAINLOOP
 """
-
+movemotor(1,550)
+movemotor(2,550)
 movezero()
 
 ########################################################################################################
