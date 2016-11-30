@@ -14,7 +14,7 @@ motors=chain.get_motor_list() # Discover all motors on the chain and return thei
 print motors
 
 #center motors for mounting orientation
-chain.goto(1
+chain.sync_write_pos([1,2], [512,512])
 
 # this corresponds to the position limits of a current <as of this writing> turret prototype. No automatic handling yet.
 xmin = 0		# 	theoretical min 0
