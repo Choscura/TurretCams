@@ -6,15 +6,19 @@ import random
 
 from dxl.dxlchain import DxlChain
 
-# Open the serial device
-chain=DxlChain("/dev/ttyACM0",rate=1000000)
+chain = DxlChain()
 
-# Load all the motors and obtain the list of IDs
-motors=chain.get_motor_list() # Discover all motors on the chain and return their IDs
-print motors
+def ___init___():
+	# Open the serial device
+	chain=DxlChain("/dev/ttyACM0",rate=1000000)
 
-#center motors for mounting orientation
-chain.sync_write_pos([1,2], [512,512])
+	# Load all the motors and obtain the list of IDs
+	motors=chain.get_motor_list() # Discover all motors on the chain and return their IDs
+	print motors
+
+	#center motors for mounting orientation
+	center()
+	#chain.sync_write_pos([1,2], [512,512])
 
 # this corresponds to the position limits of a current <as of this writing> turret prototype. No automatic handling yet.
 xmin = 0		# 	theoretical min 0
@@ -24,6 +28,13 @@ ymax = 550
 
 x_position_variable = 512
 y_position_variable = 512
+
+def center():
+	try:
+		chain.sync_write_pos_speed([1,2][512,512],[512,512])
+	except:
+		print "this is where the motors would have moved back to center!"
+
 
 def curses():
 	# import curses
@@ -40,6 +51,7 @@ def curses():
 			chain.goto(2, y_position_variable)
 			char = screen.getch()
 			if char == ord('q'):
+				center()
 				break
 			elif char == curses.KEY_UP:
 				print "up"
