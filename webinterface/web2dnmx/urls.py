@@ -1,4 +1,4 @@
-"""webinterface URL Configuration
+"""interface URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -16,11 +16,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-#	from datafeed import views 			py3 orphan
-from web2dnmx import views
+from . import views
 
 urlpatterns = [
-	url(r'^', include('web2dnmx.urls')),				# 	This handles direction for the python 2.7 version of the API
-	url(r'^datafeed/', include('datafeed.urls')),		#	This (currently orphaned) handles direction for the python 3.X version of the API
-	url(r'^admin/', admin.site.urls),					#	Default administration tools
+	url(r'^controller', views.current_datetime, name='controller')
+    #url(r'^connection', motor_controller.as_view(), name='connection'), 
 ]
+

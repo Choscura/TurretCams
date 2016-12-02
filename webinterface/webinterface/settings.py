@@ -26,9 +26,10 @@ SECRET_KEY = '()l7=%13r2==@6m9brer_t((5kk620_rdf795&9lp96r5#74=3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
-ALLOWED_HOSTS = ['192.168.1.122',
-				 '127.0.0.1',
-				'172.25.1.40',
+ALLOWED_HOSTS = ['192.168.1.122',	#	default iunu IP address
+				 '127.0.0.1',		#	localhost
+				'172.25.1.40',		#	network corrected iunu IP address
+				'192.168.3.108',	#	home dev environment IP address
 ]
 
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'web2dnmx',
 ]
 
 MIDDLEWARE = [
