@@ -1,0 +1,30 @@
+#check in
+
+set up repo on iunu
+incorporate zen
+form is built
+hide/show states
+styling
+build mongo schema
+POST to db
+GET for checkout
+fvicon
+testing
+
+#Swarm Dash
+
+set up repo on Iunu
+incorporate zen
+connect to API
+adjust API for live development
+api for local dev
+google maps-swap LAT/?ON according to facility
+reformat table data to return GET from API
+	UI
+	html structure-dependant upon what the data is
+
+styling 
+
+** test installation success**
+**  **
+testing
