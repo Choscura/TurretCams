@@ -1,6 +1,8 @@
 #!/usr/bin/env python
-import os
-import sys
+import os, sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'ext'))
+sys.path.append('/dev')
+
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "webinterface.settings")

@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['192.168.1.122',	#	default iunu IP address
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+	'django.contrib.admindocs',		#	#  	manually added admin docs
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
