@@ -51,7 +51,7 @@ def curses():
 		curses.nocbreak(); screen.keypad(0); curses.echo()
 		curses.endwin()
 
-
+"""
 print("Scanned")
 for dynamixel_id in ids_available:
 	print(dynamixel_id)
@@ -71,4 +71,4 @@ curses()
 #time.sleep(1)
 # Close the serial connection
 #serial_connection.close()
-
+"""
