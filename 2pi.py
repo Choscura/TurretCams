@@ -1,5 +1,5 @@
 """
-	python 2 test code for dynamixel ax12a turretcam
+		python 2 test code for dynamixel ax12a turretcam
 """
 
 import random
