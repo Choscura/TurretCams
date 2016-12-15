@@ -34,7 +34,7 @@ class DynamixelAX12(object):
     def __init__(self):
 
         # Connect to the serial port
-        self.connection = Connection(port="/dev/ttyUSB0", baudrate=57600)
+        self.connection = Connection(port="/dev/ttyACM0", baudrate=57600)
 
         self.dynamixel_x_axis_id = 3
         self.dynamixel_z_axis_id = 4
