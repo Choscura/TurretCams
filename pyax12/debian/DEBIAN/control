@@ -1,0 +1,8 @@
+Package: pyax12
+Version: 0.4.dev6
+Section: libs
+Priority: optional
+Maintainer: Jérémie DECOCK <jd.jdhp@gmail.com>
+Architecture: all
+Depends: python (>= 3.0), python3-serial
+Description: A library to control dynamixel AX-12+ servos with python

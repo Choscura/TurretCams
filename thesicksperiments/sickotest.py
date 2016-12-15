@@ -1,39 +1,27 @@
 import time
 from pyax12.connection import Connection
 
-
-
-
-
-
 def connect():
 	"""
 	serial connection handling
 	"""
-	dxl1 = 1
 	dxl2 = 2
 	connection = Connection(port="/dev/ttyACM0", baudrate=1000000, timeout=0.2, waiting_time=0.02)
-	connection.pretty_print_control_table(dxl1)
-	for i in range(3):
-		connection.goto(1, dxl2 ** i)
-		#connection.goto(1, 300)
-		print(connection.ping(2)) #%(x for x in range 100)
-
-
-
-	
+	dxl1 = 1 
+	connection.pretty_print_control_table(int(dxl1))
+	#print(connection.ping(2)) #%(x for x in range 100)
+ 
 def close_connection():
 	pass
 
 def get_position():
 	pass
-
+ 
 def Set_relative_position():
 	pass
 
 def set_absolute_positon():
 	pass
 
-
-
 connect()
+

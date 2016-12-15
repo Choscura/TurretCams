@@ -6,13 +6,9 @@ import random
 
 from dxl.dxlchain import DxlChain
 
-
-chain=DxlChain("/dev/ttyACM0",rate=1000000)
+chain = DxlChain("/dev/ttyACM0"/, rate=57600, timeout=0.2)
 
 def ___init___():
-	# Open the serial device
-	#chain=DxlChain("/dev/ttyACM0",rate=1000000)
-
 	# Load all the motors and obtain the list of IDs
 	motors=chain.get_motor_list() # Discover all motors on the chain and return their IDs
 	print motors
@@ -46,22 +42,20 @@ def curses():
 	curses.noecho() 
 	curses.cbreak()
 	screen.keypad(True)
-	try:		
-		chain.sync_write_pos_speed([1,2],[512,512],[1023,1023])
-		#the premise of this is to give a variable that can be modified to move the motors around
+	try:		#the premise of this is to give a variable that can be modified to move the motors around
 		while True: 
-			#chain.goto(1, x_position_variable)	
-			#chain.goto(2, y_position_variable)
+			chain.goto(1, x_position_variable)	
+			chain.goto(2, y_position_variable)
 			char = screen.getch()
 			if char == ord('q'):
-				#center()
+				center()
 				break
 			elif char == curses.KEY_UP:
 				print "up"
-			#if (y_position_variable +1) <= ymax:
-				#	y_positon_variable = y_position_variable + 1 
-			#elif char == curses.:
-			#	print "no!"
+				if (y_position_variable +1) <= ymax:
+					y_positon_variable = y_position_variable + 1 
+				else:
+					print "no!"
 			elif char == curses.KEY_DOWN:
 				print "down"
 			elif char == curses.KEY_RIGHT:
@@ -72,8 +66,7 @@ def curses():
 				Connection.goto(1, 1023, speed=100, degrees=False)
 			elif char == 10:
 				print "stop"   
-	except:
-			
+
 	finally:
 		#Close down curses properly, inc turn echo back on!
 		curses.nocbreak(); screen.keypad(0); curses.echo()

@@ -50,7 +50,7 @@ class Connection(object):
         the instruction packet and the receiving the status packet.
     """
 
-    def __init__(self, port='/dev/ttyUSB0', baudrate=57600, timeout=0.1,
+    def __init__(self, port='/dev/ttyACM0', baudrate=57600, timeout=0.1,
                  waiting_time=0.02):
 
         self.waiting_time = waiting_time
