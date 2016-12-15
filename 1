@@ -54,7 +54,7 @@ def curses():
 			#chain.goto(2, y_position_variable)
 			char = screen.getch()
 			if char == ord('q'):
-				#center()
+				center()
 				break
 			elif char == curses.KEY_UP:
 				print "up"
@@ -73,7 +73,7 @@ def curses():
 			elif char == 10:
 				print "stop"   
 	except:
-			
+		pass
 	finally:
 		#Close down curses properly, inc turn echo back on!
 		curses.nocbreak(); screen.keypad(0); curses.echo()

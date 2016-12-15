@@ -30,7 +30,7 @@ except:		#Python 3.5"""
 
 from pyax12.connection import Connection
 
-conn = Connection(port='/dev/ttyACM0', baudrate=57600, timeout=0.1, waiting_time=0.02)
+conn = Connection(port='/dev/ttyACM0', baudrate=100000, timeout=0.1, waiting_time=0.02)
 """
 INITIALIZATION
 
@@ -48,6 +48,13 @@ print("the scan finished, now it should print something")
 for ids in ids_available:
 	print("there should be a motor ID here")
 	print(ids)
+	print (conn.ping(1))
+
+
+print (conn.ping(0))
+print (conn.ping(1))
+print (conn.ping(2))
+print (conn.ping(3))
 
 def movemotor(motor, point):
 	conn.goto(motor, point, speed=0, degrees=False)

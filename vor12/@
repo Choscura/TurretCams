@@ -1,0 +1,8 @@
+from pyax12.connection import Connection
+
+conn = Connection(port="/dev/ttyACM0", rate=57600)
+
+while True:
+	conn.pretty_print_control_table(1)
+
+
