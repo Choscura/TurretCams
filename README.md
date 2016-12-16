@@ -7,9 +7,13 @@ greenhouse environments for the Iunu company.
 OVERVIEW
 
 hardware configuraiton
-	Motor:	dynamixel ax12a servo motors
-	Main board: Raspberry Pi 3 model B
-	Controller: usb2ax
-	Power hub: IL-3PHUB
+
+* Motor:	dynamixel ax12a servo motors
+
+* Main board: Raspberry Pi 3 model B
+
+* Controller: usb2ax
+
+* Power hub: IL-3PHUB
 
 computer/os/filesystem environmental variables
