@@ -17,3 +17,6 @@ hardware configuraiton
 * Power hub: IL-3PHUB
 
 computer/os/filesystem environmental variables
+
+* user (default 'pi') must be added to the group 'dialout' using "usermod -a -G dialout pi"
+
