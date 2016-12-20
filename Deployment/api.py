@@ -7,12 +7,12 @@ that is based on a raspberry pi 3 model B, running 2 dynamixel ax12a servos. You
 mileage on different systems using different architectures will vary..
 
 """
-
 ################################# Connection handling  ###########################################
 
 #This is worth saying twice- connections are a BIG FUCKING DEAL, they are difficult
 #things to manage, and special handling is needed to make them reliable
 from pyax12.connection import Connection
+from serial import SerialException
 
 serial_connection = Connection(port="/dev/ttyACM0", baudrate = 57600)
 
@@ -21,7 +21,9 @@ serial_connection = Connection(port="/dev/ttyACM0", baudrate = 57600)
 def connect():
 	try:
 		#	flush the buffer of the connection and see if that allows it to reassert itself
+		serial_connection= Connection(port="/dev/ttyACM0", baudrate=57600)
 		serial_connection.flush()
+		print(str(serial_connection.ping(1)))
 		try:  					#	try first with default port name (ttyACM0) before trying elsewhere
 			serial_connection = Connection(port="/dev/ttyACM0", baudrate = 57600)
 		except:					# 	current "elsewhere" definition confined to sequential suffix numbers
@@ -32,7 +34,7 @@ def connect():
 		return "current generation of game-stopping error. Physically reset."
 
 
-if not serial_connection.ping():
+if not serial_connection.ping(1):
 	connect()
 
 #TODO: error handling on a TypeError where a '0' is being returned as possibly a 'Null' or 'False'.
