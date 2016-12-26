@@ -15,12 +15,7 @@ from pyax12.connection import Connection
 from serial import SerialException
 
 #this is a connection string that may be a (the?) problem keeping this damn turret from working.... if this comment line is still on your screen, a fix is still commencing.
-serial_connection = Connection(port="/dev/ttyAMA0", baudrate=57600)
-print (serial_connection)
-
-serial_connection.flush()
-serial_connection.close()
-
+serial_connection = Connection(port="/dev/ttyACM0", baudrate=57600)
 
 #this connection function is in case of error of the connection above, which SHOULD be fine
 #But "SHOULD" is a fucking terrible garuntee.
@@ -28,22 +23,22 @@ def connect():
 	print("connect function is running!")
 	try:
 		#	flush the buffer of the connection and see if that allows it to reassert itself
-		#serial_connection.flush()
-		serial_connection= Connection(port="/dev/ttyAMA0", baudrate=57600)
+		serial_connection.flush()
+		serial_connection= Connection(port="/dev/ttyACM0", baudrate=57600)
 		print(str(serial_connection.ping(1)))
-#		try:  					#	try first with default port name (ttyACM0) before trying elsewhere
-#			serial_connection = Connection(port="/dev/ttyAMA0", baudrate = 100000)
-#		except:					# 	current "elsewhere" definition confined to sequential suffix numbers
-#			for x in range (0,99):
-#				location_string = "/dev/ttyAMA" + str(x)
-#				serial_connection = Connection (location_string, baudrate = 100000)
+		try:  					#	try first with default port name (ttyACM0) before trying elsewhere
+			serial_connection = Connection(port="/dev/ttyACM0", baudrate = 57600)
+		except:					# 	current "elsewhere" definition confined to sequential suffix numbers
+			for x in range (0,99):
+				location_string = "/dev/ttyACM" + str(x)
+				serial_connection = Connection (location_string, baudrate = 57600)
 	except SerialException:		#	if everything's fucked:
 		return "current generation of game-stopping error. Physically reset."
 
 try:
 	#for debugging
 	print ("here1")
-	serial_connection = Connection(port="/dev/ttyAMA0", baudrate = 57600)
+	serial_connection = Connection(port="/dev/ttyACM0", baudrate = 57600)
 	print ("here2!")
 	print(str(serial_connection.get_status_return_level(1)))
 except:
